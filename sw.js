@@ -1,6 +1,6 @@
 const CACHE_PREFIX='thanuyda-app-';
-const CACHE=CACHE_PREFIX+'v4';
-const ASSETS=['./','./index.html','./style.css?v=4','./app.js?v=4','./pdf.js','./install.js?v=4','./manifest.webmanifest','./assets/Sarabun-Regular.ttf','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable-512.png','./assets/apple-touch-icon.png'];
+const CACHE=CACHE_PREFIX+'v5';
+const ASSETS=['./','./index.html','./style.css?v=5','./app.js?v=5','./pdf.js','./install.js?v=5','./manifest.webmanifest','./assets/Sarabun-Regular.ttf','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable-512.png','./assets/apple-touch-icon.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',event=>{
